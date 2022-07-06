@@ -11,8 +11,8 @@ const App = () => {
   //const [rowData] = useState(getRowData(response)); 
   //const [columnDefs] = useState(getColumnsDef(response));
 
-  const [rowData2] = useState(request.getRowData(request.request.rnf)); 
-  const [columnDefs2] = useState(request.getColumnsDef(request.request.rnf));
+  const [rowData2] = useState(request.getRowData(request.request.get('rnf'))); 
+  const [columnDefs2] = useState(request.getColumnsDef(request.request.get('rnf')));
 
   //const rowData = getRowData(response);
   //const columnDefs = getColumnsDef(response);
