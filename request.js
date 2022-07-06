@@ -33,6 +33,10 @@ export const request = fromJS({
   },
 })
 
+export const getRnF = data => {
+  return data.get('rnf')
+}
+
 export const getColumns = (data) => {
   return data.get('columns')
 }
