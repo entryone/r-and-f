@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable'
 
-export const request = fromJS({
+export const requestMock = fromJS({
     rows: [
       {
         uid: '1020',
