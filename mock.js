@@ -38,11 +38,14 @@ export const getColumnName = (column) => {
   return name[name.mode];
 };
 
+const HEADER_COLUMN_UID = 'header'
+const HEADER_COLUMN_NAME = 'Vehicles'
+
 export const getColumnsDef = (data) => {
   const columns = getColumns(data);
   columns.unshift({
-    uid: 'header',
-    name: {mode: 'auto', auto: 'Vehicles'}
+    uid: HEADER_COLUMN_UID,
+    name: {mode: 'auto', auto: HEADER_COLUMN_NAME}
   })
   return columns.map((column) => {
     return {
@@ -60,7 +63,7 @@ export const getRowData = data => {
   
   return sectionData.map((dataRow, rowIndex) => {
     const row = {}
-    row['header'] = getColumnName(rows[rowIndex])
+    row[HEADER_COLUMN_UID] = getColumnName(rows[rowIndex])
     columns.map((column, columnIndex) => {
         row[column.uid] = dataRow[columnIndex]?.v
     })
