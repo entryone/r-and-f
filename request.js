@@ -45,7 +45,7 @@ export const getColumns = (data) => {
   const HEADER_COLUMN_UID = 'header'
   const HEADER_COLUMN_NAME = 'Vehicles'
   const COSTS_COLUMN_UID = 'costs'
-  const COSTS_COLUMN_NAME = 'costs'
+  const COSTS_COLUMN_NAME = 'Price'
   
   export const getColumnsDef = (data) => {
     const columns = getColumns(data);
