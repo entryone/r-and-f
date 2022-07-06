@@ -53,7 +53,7 @@ export const getColumnName = (column) => {
 
 export const getCostsName = (column) => {
   const name = column.get('costs');
-  return name.get(name.mode);
+  return name.get(name.get('mode'));
 };
 
 const HEADER_COLUMN_UID = 'header';
@@ -67,7 +67,7 @@ export const getColumnsDef = (data) => {
     uid: COSTS_COLUMN_UID,
     name: { mode: 'auto', auto: COSTS_COLUMN_NAME },
   }));
-  
+
   columns = columns.unshift(fromJS({
     uid: HEADER_COLUMN_UID,
     name: { mode: 'auto', auto: HEADER_COLUMN_NAME },
@@ -90,15 +90,12 @@ export const getRowData = (data) => {
   console.log('rows', rows);
 
   return rows.map((row) => {
-    const rows = {};
-    console.log('r', row);
-    row[HEADER_COLUMN_UID] = getColumnName(row);
-    row[COSTS_COLUMN_UID] = getCostsName(row);
+    let _row = fromJS({});
+    _row = _row.set(HEADER_COLUMN_UID, getColumnName(row));
+    _row = _row.set(COSTS_COLUMN_UID, getCostsName(row));
     columns.map((column, columnIndex) => {
-      row[column.uid] = sectionData[row.uid]
-        ? sectionData[row.uid][column.uid]
-        : '';
+      _row = _row.set(column.get('uid'), sectionData.getIn([row.get('uid'), column.get('uid')], ''))
     });
-    return row;
-  });
+    return _row;
+  }).toJS();
 };
