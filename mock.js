@@ -62,7 +62,7 @@ export const getRowData = data => {
     const row = {}
     row['header'] = getColumnName(rows[rowIndex])
     columns.map((column, columnIndex) => {
-        row[column.uid] = dataRow[columnIndex].v
+        row[column.uid] = dataRow[columnIndex]?.v
     })
     return row
   })
