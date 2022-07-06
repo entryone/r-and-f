@@ -24,11 +24,11 @@ export const response = fromJS({
 });
 
 export const getColumns = (data) => {
-  return data.get('columns');
+  return data.get('columns')
 };
 
 export const getRows = (data) => {
-  return data.get('rows');
+  return data.get('rows')
 };
 
 export const getData = (data, sectionIndex) => {
@@ -36,8 +36,8 @@ export const getData = (data, sectionIndex) => {
 };
 
 export const getColumnName = (column) => {
-  const name = column.get('name');
-  return name.get(name.get('mode'));
+  const name = column.get('name')
+  return name.get(name.get('mode'))
 };
 
 const HEADER_COLUMN_UID = 'header'
@@ -60,7 +60,7 @@ export const getColumnsDef = (data) => {
 
 export const getRowData = data => {
   const sectionData = getData(data, 0)
-  const columns = getColumns(data);
+  const columns = getColumns(data)
   const rows = getRows(data);
   
   return sectionData.map((dataRow, rowIndex) => {
