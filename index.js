@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { AgGridReact } from 'ag-grid-react';
+import { getColumnsDef, response } from './mock';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
@@ -12,11 +13,14 @@ const App = () => {
     { make: 'Porsche', model: 'Boxter', price: 72000 },
   ]);
 
-  const [columnDefs] = useState([
+  /*const [columnDefs] = useState([
     { field: 'make' },
     { field: 'model' },
     { field: 'price' },
-  ]);
+  ]);*/
+
+  const columnDefs = getColumnsDef(response);
+  console.log('columnDefs', columnDefs)
 
   return (
     <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
