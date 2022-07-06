@@ -85,8 +85,6 @@ export const getRowData = (data) => {
   const sectionData = getData(data);
   const columns = getColumns(data);
   const rows = getRows(data);
-  console.log('columns', columns);
-  console.log('rows', rows);
 
   return rows.map((row) => {
     let _row = fromJS({});

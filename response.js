@@ -50,7 +50,6 @@ export const getColumnsDef = (data) => {
     name: {mode: 'auto', auto: HEADER_COLUMN_NAME}
   }))
   return columns.map((column) => {
-    console.log('ccc', column)
     return fromJS({
       field: column.get('uid'),
       colId: column.get('uid'),
@@ -63,7 +62,6 @@ export const getRowData = data => {
   const sectionData = getData(data, 0)
   const columns = getColumns(data);
   const rows = getRows(data);
-  console.log('c', columns)
   
   return sectionData.map((dataRow, rowIndex) => {
     let row = fromJS({})
