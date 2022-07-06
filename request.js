@@ -27,7 +27,6 @@ export const request = fromJS({
       { uid: '8090', name: { mode: 'auto', auto: 'Shed.4' } },
     ],
     quantity: {
-      // rows/columns
       1020: { 5060: 10, 7080: 12 },
       3040: { 6070: 11, 7080: 4 },
     },

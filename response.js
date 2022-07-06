@@ -1,4 +1,6 @@
-export const response = {
+import { fromJS } from 'immutable';
+
+export const response = fromJS({
   rows: [
     { uid: '12abcd56', name: { mode: 'auto', auto: 'rows.1' } },
     { uid: '23abcd57', name: { mode: 'auto', auto: 'rows.2' } },
@@ -19,54 +21,56 @@ export const response = {
       ],
     },
   ],
-};
+});
 
 export const getColumns = (data) => {
-  return data.columns;
+  return data.get('columns');
 };
 
 export const getRows = (data) => {
-  return data.rows;
+  return data.get('rows');
 };
 
 export const getData = (data, sectionIndex) => {
-  return data.sections[sectionIndex].data;
+  return data.getIn(['sections', sectionIndex, 'data']);
 };
 
 export const getColumnName = (column) => {
-  const name = column.name;
-  return name[name.mode];
+  const name = column.get('name');
+  return name.get(name.get('mode'));
 };
 
 const HEADER_COLUMN_UID = 'header'
 const HEADER_COLUMN_NAME = 'Vehicles'
 
 export const getColumnsDef = (data) => {
-  const columns = getColumns(data);
-  columns.unshift({
+  let columns = getColumns(data);
+  columns = columns.unshift(fromJS({
     uid: HEADER_COLUMN_UID,
     name: {mode: 'auto', auto: HEADER_COLUMN_NAME}
-  })
+  }))
   return columns.map((column) => {
-    return {
-      field: column.uid,
-      colId: column.uid,
+    console.log('ccc', column)
+    return fromJS({
+      field: column.get('uid'),
+      colId: column.get('uid'),
       headerName: getColumnName(column),
-    };
-  });
+    });
+  }).toJS();
 };
 
 export const getRowData = data => {
   const sectionData = getData(data, 0)
   const columns = getColumns(data);
   const rows = getRows(data);
+  console.log('c', columns)
   
   return sectionData.map((dataRow, rowIndex) => {
-    const row = {}
-    row[HEADER_COLUMN_UID] = getColumnName(rows[rowIndex])
+    let row = fromJS({})
+    row = row.set(HEADER_COLUMN_UID, getColumnName(rows.get(rowIndex)))
     columns.map((column, columnIndex) => {
-        row[column.uid] = dataRow[columnIndex]?.v
+        row = row.set(column.get('uid'), dataRow.getIn([columnIndex, 'v'], ''))
     })
     return row
-  })
+  }).toJS()
 };
