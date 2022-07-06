@@ -42,7 +42,7 @@ export const getColumnsDef = (data) => {
   const columns = getColumns(data);
   return columns.map((column) => {
     return {
-      field: 'v',
+      field: column.uid,
       colId: column.uid,
       headerName: getColumnName(column),
     };
@@ -51,7 +51,12 @@ export const getColumnsDef = (data) => {
 
 export const getRowData = data => {
   const sectionData = getData(data, 0)
+  const columns = getColumns(data);
   return sectionData.map(dataRow => {
-    return {v: '5060', v: '5060', v: '5060'}
+    const row = {}
+    columns.map((column, index) => {
+        row[column.uid] = dataRow[index].v
+    })
+    return row
   })
 };
