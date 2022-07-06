@@ -36,12 +36,23 @@ export const getColumns = (data) => {
     const name = column.name;
     return name[name.mode];
   };
+
+  export const getCostsName = (column) => {
+    const name = column.costs;
+    return name[name.mode];
+  };
   
   const HEADER_COLUMN_UID = 'header'
   const HEADER_COLUMN_NAME = 'Vehicles'
+  const COSTS_COLUMN_UID = 'costs'
+  const COSTS_COLUMN_NAME = 'costs'
   
   export const getColumnsDef = (data) => {
     const columns = getColumns(data);
+    columns.unshift({
+      uid: COSTS_COLUMN_UID,
+      name: {mode: 'auto', auto: COSTS_COLUMN_NAME}
+    })
     columns.unshift({
       uid: HEADER_COLUMN_UID,
       name: {mode: 'auto', auto: HEADER_COLUMN_NAME}
@@ -66,6 +77,7 @@ export const getColumns = (data) => {
         const rows = {}
         console.log('r', row)
         row[HEADER_COLUMN_UID] = getColumnName(row)
+        row[COSTS_COLUMN_UID] = getCostsName(row)
         columns.map((column, columnIndex) => {
             row[column.uid] = sectionData[row.uid] ? sectionData[row.uid][column.uid] : ''
         })
