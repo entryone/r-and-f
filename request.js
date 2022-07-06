@@ -2,7 +2,7 @@ export const request = {
     filter: [{type: 'CAT', hash: "ABCD45434"}],
     rnf: {
         rows: [
-            {uid: "1020", name: {mode: 'manual'}, costs: {mode: 'manual', manual: 10}},
+            {uid: "1020", name: {mode: 'manual', manual: 'RAIN'}, costs: {mode: 'manual', manual: 10}},
             {uid: "2030", name: {mode: 'auto', auto: "TV"}, costs: {mode: 'auto', auto: 10}},
             {uid: "3040", name: {mode: 'auto', auto: "BBC"}, costs: {mode: 'manual', auto: 10}}
         ],
@@ -64,8 +64,10 @@ export const getColumns = (data) => {
 
     return rows.map(row => {
         const rows = {}
+        console.log('r', row)
+        row[HEADER_COLUMN_UID] = getColumnName(row)
         columns.map((column, columnIndex) => {
-            row[column.uid] = sectionData[row.uid] ? sectionData[row.uid][column.uid]?.v : ''
+            row[column.uid] = sectionData[row.uid] ? sectionData[row.uid][column.uid] : ''
         })
         return row
     })
