@@ -21,7 +21,7 @@ export const response = fromJS({
       ],
     },
   ],
-});
+})
 
 export const getColumns = (data) => {
   return data.get('columns')
