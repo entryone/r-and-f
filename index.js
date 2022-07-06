@@ -20,6 +20,7 @@ const App = () => {
   //const columnDefs2 = request.getColumnsDef(request.request.rnf);
   //console.log('columnDefs', columnDefs)
   //console.log('rowData', rowData);
+  console.log('rows1', rowData)
 
   return (
     <div className="ag-theme-alpine" style={{ height: 400, width: '100%' }}>
