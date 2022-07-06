@@ -71,13 +71,4 @@ export const getColumns = (data) => {
         })
         return row
     })
-    
-    /*return sectionData.map((dataRow, rowIndex) => {
-      const row = {}
-      row[HEADER_COLUMN_UID] = getColumnName(rows[rowIndex])
-      columns.map((column, columnIndex) => {
-          row[column.uid] = dataRow[columnIndex]?.v
-      })
-      return row
-    })*/
   };
