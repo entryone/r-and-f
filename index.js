@@ -24,6 +24,7 @@ const App = () => {
   return (
     <div className="ag-theme-alpine" style={{ height: 400, width: '100%' }}>
       <AgGridReact rowData={rowData} columnDefs={columnDefs} />
+      <AgGridReact rowData={rowData2} columnDefs={columnDefs2} />
     </div>
   );
 };
