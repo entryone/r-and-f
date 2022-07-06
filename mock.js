@@ -21,12 +21,12 @@ export const response = {
   ],
 };
 
-export const getRows = (data) => {
-  return data.rows;
-};
-
 export const getColumns = (data) => {
   return data.columns;
+};
+
+export const getRows = (data) => {
+  return data.rows;
 };
 
 export const getData = (data, sectionIndex) => {
@@ -40,6 +40,10 @@ export const getColumnName = (column) => {
 
 export const getColumnsDef = (data) => {
   const columns = getColumns(data);
+  columns.unshift({
+    uid: 'header',
+    name: {mode: 'auto', auto: 'Vehicles'}
+  })
   return columns.map((column) => {
     return {
       field: column.uid,
@@ -52,10 +56,13 @@ export const getColumnsDef = (data) => {
 export const getRowData = data => {
   const sectionData = getData(data, 0)
   const columns = getColumns(data);
-  return sectionData.map(dataRow => {
+  const rows = getRows(data);
+  
+  return sectionData.map((dataRow, rowIndex) => {
     const row = {}
-    columns.map((column, index) => {
-        row[column.uid] = dataRow[index].v
+    row['header'] = getColumnName(rows[rowIndex])
+    columns.map((column, columnIndex) => {
+        row[column.uid] = dataRow[columnIndex].v
     })
     return row
   })

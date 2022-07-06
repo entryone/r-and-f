@@ -22,7 +22,7 @@ const App = () => {
   const rowData = getRowData(response);
   const columnDefs = getColumnsDef(response);
   //console.log('columnDefs', columnDefs)
-  //console.log('rowData', rowData)
+  console.log('rowData', rowData);
 
   return (
     <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
