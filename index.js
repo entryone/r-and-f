@@ -21,14 +21,13 @@ const App = () => {
   const onScrollRequestEnd = (e) => {};
 
   const onScrollResponse = (e) => {
-
     ref.current.el1 = true;
-    const el = ref.current.querySelectorAll('.ag-body-horizontal-scroll-viewport')[0];
-    const el2 = ref.current.querySelectorAll('.ag-body-horizontal-scroll')[0];
-    el2.style.visibility = 'hidden';
-    el2.style.height = '0px';
-    el2.style.minHeight = '0px';
-    el.scrollLeft = e.left;
+    const scrollViewport = ref.current.querySelectorAll('.ag-body-horizontal-scroll-viewport')[0];
+    const requestScroll = ref.current.querySelectorAll('.ag-body-horizontal-scroll')[0];
+    requestScroll.style.visibility = 'hidden';
+    requestScroll.style.height = '0px';
+    requestScroll.style.minHeight = '0px';
+    scrollViewport.scrollLeft = e.left;
   };
   const onScrollResponseEnd = (e) => {
     ref.current.el1 = false;
