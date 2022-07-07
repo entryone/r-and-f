@@ -24,6 +24,7 @@ export const getColumnsDef = (data) => {
   let columns = getColumns(data);
   columns = columns.unshift(
     fromJS({
+      pinned: 'left',
       width: 450,
       uid: HEADER_COLUMN_UID,
       name: { mode: 'auto', auto: HEADER_COLUMN_NAME },
@@ -32,6 +33,7 @@ export const getColumnsDef = (data) => {
   return columns
     .map((column) => {
       return fromJS({
+        pinned: column.get('pinned'),
         width: column.get('width', 150),
         field: column.get('uid'),
         colId: column.get('uid'),

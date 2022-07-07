@@ -17,6 +17,26 @@ export const requestMock = fromJS({
         name: { mode: 'auto', auto: 'BBC' },
         costs: { mode: 'manual', auto: 10 },
       },
+      {
+        uid: '3041',
+        name: { mode: 'auto', auto: 'AQUA' },
+        costs: { mode: 'manual', auto: 10 },
+      },
+      {
+        uid: '3042',
+        name: { mode: 'auto', auto: 'MET' },
+        costs: { mode: 'manual', auto: 10 },
+      },
+      {
+        uid: '3043',
+        name: { mode: 'auto', auto: 'SWIFT' },
+        costs: { mode: 'manual', auto: 10 },
+      },
+      {
+        uid: '3044',
+        name: { mode: 'auto', auto: 'MAC' },
+        costs: { mode: 'manual', auto: 10 },
+      }
     ],
     columns: [
       { uid: '5060', name: { mode: 'auto', auto: 'Shed.1' } },
