@@ -17,7 +17,10 @@ export function RequestTable({
     onBodyScroll: onScroll,
     onBodyScrollEnd: onScrollEnd,
     debounceVerticalScrollbar: true,
-   //suppressHorizontalScroll: true
+    onCellValueChanged: (e) => {
+      console.log('e', e)
+    }
+
   };
   return (
     <AgGridReact

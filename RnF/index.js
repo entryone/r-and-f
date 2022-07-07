@@ -3,7 +3,7 @@ import { RequestTable } from './RequestTable';
 import { requestMock } from './requestMock';
 import { ResponseTable } from './ResponseTable';
 import { responseMock } from './responseMock';
-import './style.css';
+
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';

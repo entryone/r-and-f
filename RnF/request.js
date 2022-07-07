@@ -56,6 +56,7 @@ export const getColumnsDef = (data) => {
 
   return columns.map((column) => {
     return {
+      editable: true,
       pinned: column.get('pinned'),
       width: column.get('width', 150),
       field: column.get('uid'),
