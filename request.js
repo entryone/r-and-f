@@ -28,13 +28,17 @@ export const getCostsName = (column) => {
 
 const HEADER_COLUMN_UID = 'header';
 const HEADER_COLUMN_NAME = 'Vehicles';
+const HEADER_COLUMN_WIDTH = 300;
+
 const COSTS_COLUMN_UID = 'costs';
 const COSTS_COLUMN_NAME = 'costs';
+const COSTS_COLUMN_WIDTH = 150;
 
 export const getColumnsDef = (data) => {
   let columns = getColumns(data);
   columns = columns.unshift(
     fromJS({
+      width: COSTS_COLUMN_WIDTH,
       uid: COSTS_COLUMN_UID,
       name: { mode: 'auto', auto: COSTS_COLUMN_NAME },
     })
@@ -42,6 +46,7 @@ export const getColumnsDef = (data) => {
 
   columns = columns.unshift(
     fromJS({
+      width: HEADER_COLUMN_WIDTH,
       uid: HEADER_COLUMN_UID,
       name: { mode: 'auto', auto: HEADER_COLUMN_NAME },
     })
@@ -49,6 +54,7 @@ export const getColumnsDef = (data) => {
 
   return columns.map((column) => {
     return {
+      width: column.get('width', 150),
       field: column.get('uid'),
       colId: column.get('uid'),
       headerName: getColumnName(column),

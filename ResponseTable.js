@@ -8,5 +8,6 @@ import 'ag-grid-community/dist/styles/ag-theme-alpine.css'
 export function ResponseTable ({data}) {
   const [rowData] = useState(response.getRowData(data))
   const [columnDefs] = useState(response.getColumnsDef(data))
-  return (<AgGridReact rowData={rowData} columnDefs={columnDefs} />)
+  return (<AgGridReact headerHeight={0}
+    rowData={rowData} columnDefs={columnDefs} />)
 }

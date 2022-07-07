@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import { render } from 'react-dom'
-import { RequestTable } from './RequestTable'
-import { requestMock } from './requestMock'
-import { ResponseTable } from './ResponseTable'
-import { responseMock } from './responseMock'
+import React, { useState } from 'react';
+import { render } from 'react-dom';
+import { RequestTable } from './RequestTable';
+import { requestMock } from './requestMock';
+import { ResponseTable } from './ResponseTable';
+import { responseMock } from './responseMock';
+import './style.css';
 
-import 'ag-grid-community/dist/styles/ag-grid.css'
-import 'ag-grid-community/dist/styles/ag-theme-alpine.css'
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
 const App = () => {
-
   return (
     <div className="ag-theme-alpine" style={{ height: 400, width: '100%' }}>
       <RequestTable data={requestMock} />
@@ -18,4 +18,4 @@ const App = () => {
   );
 };
 
-render(<App />, document.getElementById('root'))
+render(<App />, document.getElementById('root'));
