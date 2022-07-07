@@ -28,6 +28,7 @@ export const getColumnsDef = (data) => {
   }))
   return columns.map((column) => {
     return fromJS({
+      headerClass: 'xxxxxxxx',
       field: column.get('uid'),
       colId: column.get('uid'),
       headerName: getColumnName(column),
