@@ -82,11 +82,6 @@ export const getRowData = (data) => {
       });
       return _row;
     })
-    //.toJS();
-    rows = rows.push(fromJS({
-      fullWidth: true,
-      uid: 'e'
-    }))
     return rows.toJS()
 };
 
